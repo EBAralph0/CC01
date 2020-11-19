@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC01.BLL", "CC01.BLL\CC01.BLL.csproj", "{6DF247F9-7CEB-4E96-B785-D20823E62355}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC01.WinForms", "CC01.WinForms\CC01.WinForms.csproj", "{79FDA165-C1B6-445B-9956-EF4C05FDE7FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D0E08801-1296-4BD0-8841-524857D6A605} = {D0E08801-1296-4BD0-8841-524857D6A605}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
