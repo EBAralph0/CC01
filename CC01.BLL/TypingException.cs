@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace CC01.WinForms
 {
+    [Serializable]
     internal class TypingException : Exception
     {
         public TypingException()

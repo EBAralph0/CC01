@@ -14,7 +14,7 @@ namespace CC01.DAL
     {
         private static List<Etudiant> etudiants;
         private const string FILE_NAME = @"etudiants.json";
-        private readonly string dbFolder;//elle se lit seulement dans le constructeur
+        private readonly string dbFolder;  //elle se lit seulement dans le constructeur
         private FileInfo file;
 
         public EtudiantDAO(string dbFolder)
@@ -44,9 +44,12 @@ namespace CC01.DAL
                 etudiants = new List<Etudiant>();
             }
         }
-        public void Add(Etudiant product)
+        public void Add(Etudiant etudiant)
         {
-            etudiants.Add(product);
+            var index = etudiants.IndexOf(etudiant);
+            if (index >= 0)
+                throw new DuplicateNameException("This student matricule already exists !");
+            etudiants.Add(etudiant);
             Save();
         }
 
@@ -60,9 +63,9 @@ namespace CC01.DAL
             }
         }
 
-        public void Remove(Etudiant product)
+        public void Remove(Etudiant etudiant)
         {
-            etudiants.Remove(product);// basé sur la méthode equals de product ie product.equal
+            etudiants.Remove(etudiant);// basé sur la méthode equals de product ie product.equal
             Save();
         }
         public IEnumerable<Etudiant> Find()
@@ -78,9 +81,9 @@ namespace CC01.DAL
             var oldIndex = etudiants.IndexOf(oldEtudiant);
             var newIndex = etudiants.IndexOf(newEtudiant);
             if (oldIndex < 0)
-                throw new KeyNotFoundException("The product doesn't exists !");
+                throw new KeyNotFoundException("The student doesn't exists !");
             if (newIndex >= 0 && oldIndex != newIndex)
-                throw new DuplicateNameException("This product reference already exists !");
+                throw new DuplicateNameException("This student reference already exists !");
            etudiants[oldIndex] = newEtudiant;
             Save();
         }

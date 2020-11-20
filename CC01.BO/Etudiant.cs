@@ -20,6 +20,7 @@ namespace CC01.BO
 
         public Etudiant()
         {
+
         }
 
         public Etudiant(string nom, string prenom, string dateNaissance, string lieuNaissance, string matricule, long contact, string email, byte[] photo)
