@@ -96,5 +96,10 @@ namespace CC01.WinForms
             else
                 textBoxSearch.Clear();
         }
+
+        private void frmEcole_Load(object sender, EventArgs e)
+        {
+            loadData();
+        }
     }
 }

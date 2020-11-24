@@ -72,6 +72,10 @@ namespace CC01.WinForms
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information
                     );
+                if (callBack != null)
+                    callBack();
+                if (oldEcole != null)
+                    Close();
                 textBoxIntitule.Clear();
                 textBoxEcomail.Clear();
                 textBoxTelephone.Clear();
@@ -138,6 +142,11 @@ namespace CC01.WinForms
             {
                 pictureBox2.ImageLocation = ofd.FileName;
             }
+        }
+
+        private void frmCreerEcole_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 

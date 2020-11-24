@@ -78,12 +78,16 @@ namespace CC01.WinForms
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information
                     );
+                if (callBack != null)
+                    callBack();
+                if (oldEtudiant != null)
+                    Close();
                 textBoxMatricule.Clear();
                 textBoxNom.Clear();
                 textBoxContact.Clear();
                 textBoxEmail.Clear();
                 textBoxLieuNaiss.Clear();
-                textBoxPrenom.Focus();
+                textBoxMatricule.Focus();
             }
             catch(DuplicateNameException ex)
             {
