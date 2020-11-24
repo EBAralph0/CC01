@@ -111,7 +111,6 @@
             this.btnPrint.TabIndex = 20;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnDelete
             // 
@@ -208,6 +207,7 @@
             // 
             this.Photo.DataPropertyName = "Photo";
             this.Photo.HeaderText = "Photo";
+            this.Photo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Photo.Name = "Photo";
             this.Photo.ReadOnly = true;
             this.Photo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -215,7 +215,7 @@
             // 
             // LieuNaiss
             // 
-            this.LieuNaiss.DataPropertyName = "LieuNaiss";
+            this.LieuNaiss.DataPropertyName = "LieuNaissance";
             this.LieuNaiss.HeaderText = "Lieu de Naissance";
             this.LieuNaiss.Name = "LieuNaiss";
             this.LieuNaiss.ReadOnly = true;
@@ -236,7 +236,7 @@
             // 
             // DateNaiss
             // 
-            this.DateNaiss.DataPropertyName = "DateNaiss";
+            this.DateNaiss.DataPropertyName = "DateNaissance";
             this.DateNaiss.HeaderText = "Né(e) le";
             this.DateNaiss.Name = "DateNaiss";
             this.DateNaiss.ReadOnly = true;

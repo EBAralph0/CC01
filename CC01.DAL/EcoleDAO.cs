@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace CC01.DAL
 {
-    public class EtudiantDAO
+    public class EcoleDAO
     {
-        private static List<Etudiant> etudiants;
-        private const string FILE_NAME = @"etudiants.json";
+        private static List<Ecole> ecoles;
+        private const string FILE_NAME = @"ecoles.json";
         private readonly string dbFolder;  //elle se lit seulement dans le constructeur
         private FileInfo file;
 
-        public EtudiantDAO(string dbFolder)
+        public EcoleDAO(string dbFolder)
         {
             this.dbFolder = dbFolder;
             file = new FileInfo(Path.Combine(this.dbFolder, FILE_NAME));
@@ -35,21 +35,21 @@ namespace CC01.DAL
                 using (StreamReader sr = new StreamReader(file.FullName))
                 {
                     string json = sr.ReadToEnd();
-                    etudiants = JsonConvert.DeserializeObject<List<Etudiant>>(json);
+                    ecoles = JsonConvert.DeserializeObject<List<Ecole>>(json);
                 }
 
             }
-            if (etudiants == null)
+            if (ecoles == null)
             {
-                etudiants = new List<Etudiant>();
+                ecoles = new List<Ecole>();
             }
         }
-        public void Add(Etudiant etudiant)
+        public void Add(Ecole ecole)
         {
-            var index = etudiants.IndexOf(etudiant);
+            var index = ecoles.IndexOf(ecole);
             if (index >= 0)
-                throw new DuplicateNameException("This student description already exists !");
-            etudiants.Add(etudiant);
+                throw new DuplicateNameException("This student matricule already exists !");
+            ecoles.Add(ecole);
             Save();
         }
 
@@ -57,37 +57,35 @@ namespace CC01.DAL
         {
             using (StreamWriter sw = new StreamWriter(file.FullName, false))//false implique qu'à chaque fois qu'on écrit on efface ce qu'il y'avait dans le fichier
             {
-                string json = JsonConvert.SerializeObject(etudiants);
+                string json = JsonConvert.SerializeObject(ecoles);
                 sw.WriteLine(json);
 
             }
         }
 
-        public void Remove(Etudiant etudiant)
+        public void Remove(Ecole ecole)
         {
-            etudiants.Remove(etudiant);// basé sur la méthode equals de product ie product.equal
+            ecoles.Remove(ecole);// basé sur la méthode equals de product ie product.equal
             Save();
         }
-        public IEnumerable<Etudiant> Find()
+        public IEnumerable<Ecole> Find()
         {
-            return new List<Etudiant>(etudiants);
+            return new List<Ecole>(ecoles);
         }
-        public IEnumerable<Etudiant> Find(Func<Etudiant, bool> predicate)
+        public IEnumerable<Ecole> Find(Func<Ecole, bool> predicate)
         {
-            return new List<Etudiant>(etudiants.Where(predicate).ToArray());
+            return new List<Ecole>(ecoles.Where(predicate).ToArray());
         }
-        public void Set(Etudiant oldEtudiant, Etudiant newEtudiant)
+        public void Set(Ecole oldEcole, Ecole newEcole)
         {
-            var oldIndex = etudiants.IndexOf(oldEtudiant);
-            var newIndex = etudiants.IndexOf(newEtudiant);
+            var oldIndex = ecoles.IndexOf(oldEcole);
+            var newIndex = ecoles.IndexOf(newEcole);
             if (oldIndex < 0)
                 throw new KeyNotFoundException("The student doesn't exists !");
             if (newIndex >= 0 && oldIndex != newIndex)
                 throw new DuplicateNameException("This student reference already exists !");
-           etudiants[oldIndex] = newEtudiant;
+            ecoles[oldIndex] = newEcole;
             Save();
         }
-
-
     }
 }

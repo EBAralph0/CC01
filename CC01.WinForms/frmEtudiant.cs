@@ -133,6 +133,18 @@ namespace CC01.WinForms
             {
                 Etudiant et = dataGridView1.Rows[i].DataBoundItem as Etudiant;
                 byte[] logo = null;
+                //if (!string.IsNullOrEmpty(p.Logo))
+                //{
+                //    logo = File.ReadAllBytes
+                //    (
+                //        Path.Combine
+                //        (
+                //            ConfigurationManager.AppSettings["DbFolder"],
+                //            "logo",
+                //            p.Logo
+                //        )
+                //    );
+                //}
                 items.Add
                 (
                    new EtudiantListPrint
@@ -142,10 +154,10 @@ namespace CC01.WinForms
                        et.Prenom,
                        DateTime.Parse(et.DateNaissance),
                        et.Photo
-                    )
+                    ) 
                 );
             }
-            Form f = new FrmPreview("ProductListRpt.rdlc", items);
+            Form f = new FrmPreview("Report1.rdlc", items);
             f.Show();
         }
     }

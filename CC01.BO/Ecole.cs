@@ -8,21 +8,31 @@ namespace CC01.BO
 {
     public class Ecole
     {
-        public string Intitulé { get; set; }
-        public long Téléphone { get; set; }
-        public string Email { get; set; }
+        public string Intitule { get; set; }
+        public long Telephone { get; set; }
+        public string Ecomail { get; set; }
         public byte[] Logo { get; set; }
 
         public Ecole()
         {
         }
 
-        public Ecole(string intitulé, byte[] logo, long téléphone, string email)
+        public Ecole(string intitule, long téléphone, string ecomail, byte[] logo)
         {
-            Intitulé = intitulé;
+            Intitule = intitule;
+            Telephone = téléphone;
+            Ecomail = ecomail;
             Logo = logo;
-            Téléphone = téléphone;
-            Email = email;
+        }
+        public override bool Equals(object obj)
+        {
+            return obj is Ecole ecole &&
+                   Intitule == ecole.Intitule;
+        }
+
+        public override int GetHashCode()
+        {
+            return 145730772 + EqualityComparer<string>.Default.GetHashCode(Intitule);
         }
     }
 }
