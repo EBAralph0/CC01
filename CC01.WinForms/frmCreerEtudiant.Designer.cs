@@ -46,7 +46,10 @@
             this.lblMatricule = new System.Windows.Forms.Label();
             this.brnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pictureBoxBarCode = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBarCode)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -225,11 +228,34 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pictureBoxBarCode
+            // 
+            this.pictureBoxBarCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxBarCode.Location = new System.Drawing.Point(607, 148);
+            this.pictureBoxBarCode.Name = "pictureBoxBarCode";
+            this.pictureBoxBarCode.Size = new System.Drawing.Size(127, 121);
+            this.pictureBoxBarCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBarCode.TabIndex = 35;
+            this.pictureBoxBarCode.TabStop = false;
+            this.pictureBoxBarCode.Click += new System.EventHandler(this.pictureBoxBarCode_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(603, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 20);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Code barre";
+            // 
             // frmCreerEtudiant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 515);
+            this.ClientSize = new System.Drawing.Size(746, 515);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.pictureBoxBarCode);
             this.Controls.Add(this.brnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
@@ -252,6 +278,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCreerEtudiant";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBarCode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +304,7 @@
         private System.Windows.Forms.Label lblMatricule;
         private System.Windows.Forms.Button brnCancel;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox pictureBoxBarCode;
+        private System.Windows.Forms.Label label8;
     }
 }

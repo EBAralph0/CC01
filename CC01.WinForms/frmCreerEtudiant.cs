@@ -157,5 +157,11 @@ namespace CC01.WinForms
                 pictureBox1.ImageLocation = ofd.FileName;
             }
         }
+
+        private void pictureBoxBarCode_Click(object sender, EventArgs e)
+        {
+            Zen.Barcode.CodeQrBarcodeDraw codeQr = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+            pictureBoxBarCode.Image=codeQr.Draw(textBoxMatricule.Text, 25);
+        }
     }
 }
